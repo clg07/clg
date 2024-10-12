@@ -1,0 +1,29 @@
+STEPS :-
+1) Open “ApacheJMeter.jar” file. Name your Test Plan as “hello”:
+
+2) Save(CTRL+S) your Test Plan. It will be saved as “.jmx”(i.e. Java Management Extensions):
+
+3) Create a Thread Group
+(right-click over “hello(Test Plan)” > Add > Thread(Users) > Thread Group >
+Name your Thread Group as “myThread1” > Save(CTRL+S)):
+
+4)Under Thread Group(myThread1), add a “Sampler”, namely HTTP Request:
+(right-click over “myThread1(Thread Group)” > Add > Sampler > HTTP Request):
+
+5) Now visit any website page with a next path. Then set website name as “Server Name or IP”
+& next path as “Path” in the Basic panel:
+
+6) Under HTTP Request Sampler, add 2 “Listeners”, namely View Results Tree & View Results
+in Table:
+(right-click over HTTP Request(Sampler) > Add > Listener > View Results Tree) &
+(right-click over HTTP Request(Sampler) > Add > Listener > View Results in Table):
+
+7) Save(CTRL+S) & Run(CTRL+R) the file and wait for a while. You’ll see some:
+
+• OUTPUTS:
+8) Now change some Thread Properties(users=10; ramp-up period=20; loop count=Forever):
+
+9) Save(CTRL+S) & Run(CTRL+R) the file and wait for a while. You’ll see some infinite:
+
+• OUTPUTS:
+10) Finish!
