@@ -1,29 +1,14 @@
 from Crypto.PublicKey import RSA
-from Crypto.Signature import PKCS1_15
-print("no module found")
-#print(PKCS1_15)
-# pip install pycryptodome
+from Crypto.Signature import pkcs1_15
 from Crypto.Hash import SHA256
-
-# Generate RSA key pair
 key = RSA.generate(2048)
-private_key = key.export_key()
-public_key = key.publickey().export_key()  # Fix here
-
-# Documents
-original_docs = b"this is original docs.."
-modified_docs = b"this is modified docs.."
-
-# Hashes
-original_hash = SHA256.new(original_docs)
-modified_hash = SHA256.new(modified_docs)
-
-# Sign the original document
-signature = PKCS1_15.new(RSA.import_key(private_key)).sign(original_hash)
-
-# Verify the signature
+public_key = key.publickey()
+message = "Ismile Academy"
+message_bytes = message.encode()
+hash_message = SHA256.new(message_bytes)
+signature = pkcs1_15.new(key).sign(hash_message)
 try:
-    PKCS1_15.new(RSA.import_key(public_key)).verify(modified_hash, signature)
-    print("valid signature...")
+    pkcs1_15.new(public_key).verify(hash_message, signature)
+    print("Signature is valid.")
 except (ValueError, TypeError):
-    print("invalid signature...")
+    print("Signature is invalid.")
