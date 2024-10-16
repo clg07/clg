@@ -1,18 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI; // Required for using UI elements like RawImage
+using UnityEngine.UI;
 
-public class Scrolling : MonoBehaviour
+public class scrolling : MonoBehaviour
 {
-    [SerializeField] RawImage img; // Corrected spelling and type
+    [SerializeField] RawImage img;
     public float x;
     public float y;
-
-    // Update is called once per frame
+     
+    void Start()
+    {
+        
+    }
     void Update()
     {
-        // Corrected Time.deltaTime
-        img.uvRect = new Rect(img.uvRect.position + new Vector2(x, y) * Time.deltaTime, img.uvRect.size);
+        Vector2 A = img.uvRect.position;
+        Vector2 B = new Vector2(x,y) * Time.deltaTime;
+        Vector2 C = img.uvRect.size;
+
+        img.uvRect = new Rect(A + B,C);
     }
 }
