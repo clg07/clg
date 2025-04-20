@@ -1,0 +1,5 @@
+covid,fever,flu_prediction
+sore throat,high fever,yes
+no symptoms,no fever,no
+cough,mild fever,yes
+dry cough,low fever,yes
