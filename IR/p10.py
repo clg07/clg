@@ -1,24 +1,15 @@
 from sumy.parsers.plaintext import PlaintextParser
-from sumy.nlp.tokenizers import Tokenizer
 from sumy.summarizers.lsa import LsaSummarizer
-import nltk
-# nltk.download('punkt_tab')
+from sumy.nlp.tokenizers import Tokenizer
 
-text = """
-Infromation Reteival is a field concerned with searching for relevant documents
-within a large dataset. Text summerization is the process of reducing a
-documents's
-length while maintaining its meaning. Extractive methods identify 
-and extract
-key snetences, while abstractive methods generate summeries in their
-own words.
+text = """International Relations (IR) refers to the study of interactions between nations, states, and other actors on the global stage. 
+It encompasses a broad range of topics, including diplomacy, foreign policy, conflict resolution, globalization, and international law. 
+In this blog, we will delve into the meaning and definitions of IR, its history, features, importance, and India’s relations with major countries. """
 
-"""
+parser = PlaintextParser(text,Tokenizer("english"))
 
-parser = PlaintextParser.from_string(text, Tokenizer("english"))
 summarizer = LsaSummarizer()
-print(parser.document)
-summary = summarizer(parser.document, 2)
+summary = summarizer(parser.document,2)
 
-for sentence in summary:
-    print(sentence)
+for sum in summary:
+    print(" - ",sum)
