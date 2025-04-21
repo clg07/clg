@@ -1,0 +1,17 @@
+
+Nmap Commands for Practical No. 3 – Port Scanning
+
+1. ACK Scan:
+nmap -sA -T4 scanme.nmap.org
+
+2. SYN (Stealth) Scan:
+nmap -sS -p22,113,139 scanme.nmap.org
+
+3. FIN Scan:
+nmap -sF -T4 scanme.nmap.org/para
+
+4. NULL Scan:
+nmap -sN -p22 scanme.nmap.org
+
+5. XMAS Scan:
+nmap -sX -T4 scanme.nmap.org
