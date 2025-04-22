@@ -1,3 +1,4 @@
+# Feature Scaling and Dummification
 import pandas as pd
 from sklearn.preprocessing import MinMaxScaler, StandardScaler, LabelEncoder
 
