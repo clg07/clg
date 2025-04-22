@@ -1,0 +1,34 @@
+Nmap Commands and Their Explanations
+
+1. ACK Scan (-sA)
+Command: nmap -sA -T4 scanme.nmap.org
+Purpose: Used to map firewall rulesets and determine whether ports are filtered or unfiltered.
+How it works: Sends TCP packets with the ACK flag set. If RST is received, the port is unfiltered.
+If no response or ICMP unreachable error is received, the port is filtered.
+It does NOT determine if a port is open.
+
+2. SYN Scan (-sS)
+Command: nmap -p22,113,139 scanme.nmap.org
+Purpose: Performs a stealth scan to detect open ports without completing the TCP handshake.
+How it works: Sends a SYN packet. If SYN-ACK is received, port is open. If RST is received, it's closed.
+It does not send ACK back, making it less likely to be logged.
+
+3. FIN Scan (-sF)
+Command: nmap -sF -T4 target
+Purpose: Detects open ports by sending packets with the FIN flag set.
+How it works: Closed ports send RST. Open ports ignore the FIN packet.
+Effective on non-Windows systems and can bypass some firewalls.
+
+4. NULL Scan (-sN)
+Command: nmap -sN -p22 scanme.nmap.org
+Purpose: Sends TCP packets with no flags set to evade firewalls and IDS.
+How it works: Closed ports send RST; open ports do not respond.
+Works best on UNIX-based systems.
+
+5. XMAS Scan (-sX)
+Command: nmap -sX -T4 scanme.nmap.org
+Purpose: Sends TCP packets with FIN, PSH, and URG flags set.
+How it works: Closed ports respond with RST; open ports ignore.
+Used to evade intrusion detection systems and analyze firewalls.
+
+Note: FIN, NULL, and XMAS scans are primarily useful on UNIX-like systems and are not reliable on Windows.
