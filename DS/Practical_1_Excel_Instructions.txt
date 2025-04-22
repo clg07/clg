@@ -1,0 +1,76 @@
+
+TYCS Semester VI - Data Science
+Practical 1: Excel Basics
+
+--------------------------------------------------
+A. Conditional Formatting (Highlight Cells > 2000)
+--------------------------------------------------
+Steps:
+1. Open Excel and load your data.
+2. Select the range (e.g., B2:B6 for Sales).
+3. Go to Home → Conditional Formatting → Highlight Cell Rules → Greater Than...
+4. Enter value: 2000
+5. Choose a color (e.g., Light Red Fill)
+6. Click OK
+
+--------------------------------------------------
+B. Data Bars
+--------------------------------------------------
+Steps:
+1. Select the range (e.g., B2:B6 for Sales).
+2. Go to Home → Conditional Formatting → Data Bars → Solid Fill (select a color)
+
+--------------------------------------------------
+C. Pivot Table
+--------------------------------------------------
+Sample Table:
+| Name  | Region | Sales |
+|-------|--------|-------|
+| John  | East   | 1000  |
+| Meera | West   | 3000  |
+
+Steps:
+1. Select your full table (A1:C6).
+2. Go to Insert → PivotTable → Choose "New Worksheet"
+3. In PivotTable Fields:
+   - Drag "Region" to Rows
+   - Drag "Sales" to Values
+
+--------------------------------------------------
+D. VLOOKUP
+--------------------------------------------------
+Sheet1:
+| Name  | Sales |
+|-------|-------|
+| John  | 1500  |
+| Meera | 2500  |
+
+Sheet2:
+| Name  | Bonus |
+|-------|--------|
+| John  | 100    |
+| Meera | 300    |
+
+Formula (in Sheet1, C2):
+=VLOOKUP(A2, Sheet2!A$2:B$6, 2, FALSE)
+
+Steps:
+1. Go to cell C2
+2. Enter above formula
+3. Drag down to apply to other rows
+
+--------------------------------------------------
+E. Goal Seek (What-If Analysis)
+--------------------------------------------------
+Scenario: You want total sales to be 10000
+
+Steps:
+1. In B7, type: =SUM(B2:B6)
+2. Go to Data → What-If Analysis → Goal Seek
+3. Set Cell: B7
+4. To Value: 10000
+5. By Changing Cell: B2
+6. Click OK
+
+--------------------------------------------------
+End of Practical 1
